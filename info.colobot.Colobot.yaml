@@ -55,17 +55,15 @@ modules:
       - -DCOLOBOT_INSTALL_BIN_DIR=/app/bin
     sources:
       - type: archive
-        url: https://github.com/colobot/colobot/archive/colobot-gold-0.1.11.1-alpha.tar.gz
-        sha256: 8e57b84f109ce91cf2d311c38772f921ecb1a336ffafdea78455e5ac5824ce40
-      - type: patch
-        path: xdg-patch.patch
+        url: https://github.com/colobot/colobot/archive/colobot-gold-0.1.12-alpha.tar.gz
+        sha256: 38e01a6fb8c670203b86e7a100c79ed4ab4a9a4dcc01fd26a6a57f40fa1a8b5c
 
   - name: colobot-data
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/colobot/colobot-data/archive/colobot-gold-0.1.11.1-alpha.tar.gz
-        sha256: 5e5e5c721a3cc89ffed4a90acb8e064c688e2fabc3da54c9ab7d49d199b73f66
+        url: https://github.com/colobot/colobot-data/archive/colobot-gold-0.1.12-alpha.tar.gz
+        sha256: 6eeb53149af8adc9b7d20759a176a418577952371b20ec98fccf0c5ff2591ea9
       - type: file
         url: http://colobot.info/files/music/Intro1.ogg
         sha256: 287ad10983b02ed2b18d16e268a24cbf6f3766d32ded76a8f24687e6e5bccf4c
