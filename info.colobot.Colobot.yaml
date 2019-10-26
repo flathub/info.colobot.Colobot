@@ -1,7 +1,7 @@
 ---
 app-id: info.colobot.Colobot
 runtime: org.freedesktop.Platform
-runtime-version: '18.08'
+runtime-version: '19.08'
 sdk: org.freedesktop.Sdk
 command: colobot
 rename-icon: colobot
@@ -23,7 +23,7 @@ cleanup:
   - "*.a"
 modules:
   - shared-modules/glew/glew.json
-  - shared-modules/glu/glu-9.0.0.json
+  - shared-modules/glu/glu-9.json
 
   - name: boost
     buildsystem: simple
@@ -44,6 +44,8 @@ modules:
       - type: archive
         url: https://icculus.org/physfs/downloads/physfs-3.0.1.tar.bz2
         sha256: b77b9f853168d9636a44f75fca372b363106f52d789d18a2f776397bf117f2f1
+
+  - shared-modules/python2.7/python-2.7.json
 
   - name: colobot
     builddir: true
