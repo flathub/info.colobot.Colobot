@@ -33,8 +33,8 @@ modules:
       - "./b2 install -j $FLATPAK_BUILDER_N_JOBS"
     sources:
       - type: archive
-        url: https://downloads.sourceforge.net/project/boost/boost/1.64.0/boost_1_64_0.tar.bz2
-        sha256: 7bcc5caace97baa948931d712ea5f37038dbb1c5d89b43ad4def4ed7cb683332
+        url: https://downloads.sourceforge.net/project/boost/boost/1.73.0/boost_1_73_0.tar.bz2
+        sha256: 4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402
 
   - name: physfs
     buildsystem: cmake-ninja
@@ -42,10 +42,8 @@ modules:
       - -DPHYSFS_BUILD_TEST=off
     sources:
       - type: archive
-        url: https://icculus.org/physfs/downloads/physfs-3.0.1.tar.bz2
-        sha256: b77b9f853168d9636a44f75fca372b363106f52d789d18a2f776397bf117f2f1
-
-  - shared-modules/python2.7/python-2.7.json
+        url: https://icculus.org/physfs/downloads/physfs-3.0.2.tar.bz2
+        sha256: 304df76206d633df5360e738b138c94e82ccf086e50ba84f456d3f8432f9f863
 
   - name: colobot
     builddir: true
@@ -59,6 +57,10 @@ modules:
       - type: archive
         url: https://github.com/colobot/colobot/archive/colobot-gold-0.1.12-alpha.tar.gz
         sha256: 38e01a6fb8c670203b86e7a100c79ed4ab4a9a4dcc01fd26a6a57f40fa1a8b5c
+      - type: patch
+        path: f3ae4b420932a44a8b06733e8caa53e88bad873a.patch
+
+  - shared-modules/python2.7/python-2.7.json
 
   - name: colobot-data
     buildsystem: cmake-ninja
@@ -154,7 +156,7 @@ modules:
   - name: colobot-appdata
     buildsystem: simple
     build-commands:
-      - "install -Dm644 -t /app/share/metainfo info.colobot.Colobot.appdata.xml"
+      - "install -Dm644 -t /app/share/metainfo info.colobot.Colobot.metainfo.xml"
     sources:
       - type: file
-        path: info.colobot.Colobot.appdata.xml
+        path: info.colobot.Colobot.metainfo.xml
