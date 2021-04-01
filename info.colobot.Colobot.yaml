@@ -102,11 +102,3 @@ modules:
           version-query: '.tag_name | match("colobot-gold-(.*)") | .captures[0].string'
           timestamp-query: '.published_at'
           url-query: '"https://colobot.info/files/music/colobot-music_ogg_" + $version + ".tar.gz"'
-
-  - name: colobot-appdata
-    buildsystem: simple
-    build-commands:
-      - "install -Dm644 -t /app/share/metainfo info.colobot.Colobot.metainfo.xml"
-    sources:
-      - type: file
-        path: info.colobot.Colobot.metainfo.xml
