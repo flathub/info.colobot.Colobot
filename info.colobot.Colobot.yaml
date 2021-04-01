@@ -68,6 +68,9 @@ modules:
           version-query: '.tag_name'
           timestamp-query: '.published_at'
           url-query: '"https://github.com/colobot/colobot/archive/" + $version + ".tar.gz"'
+
+      - type: patch
+        path: colobot-0.1.12-appdata.patch
         
       - type: patch
         path: colobot-0.1.12-includes.patch
