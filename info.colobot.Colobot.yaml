@@ -55,13 +55,12 @@ modules:
     build-options:
       cxxflags: "-Wno-format-overflow"
     config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_BUILD_TYPE=Release
       - -DCOLOBOT_INSTALL_BIN_DIR=/app/bin
     sources:
       - type: archive
-        url: https://github.com/colobot/colobot/archive/colobot-gold-0.1.12-alpha.tar.gz
-        sha256: 38e01a6fb8c670203b86e7a100c79ed4ab4a9a4dcc01fd26a6a57f40fa1a8b5c
-        size: 1468594
+        url: https://github.com/colobot/colobot/archive/colobot-gold-0.2.0-alpha.tar.gz
+        sha256: 633ce4ec9b54c657942453e769a2339befb2d0afff8b8b3589a73d005e097ab6
         x-checker-data:
           type: json
           url: https://api.github.com/repos/colobot/colobot/releases/latest
@@ -70,35 +69,33 @@ modules:
           url-query: '"https://github.com/colobot/colobot/archive/" + $version + ".tar.gz"'
 
       - type: patch
-        path: colobot-0.1.12-appdata.patch
-        
-      - type: patch
-        path: colobot-0.1.12-includes.patch
+        path: colobot-0.2.0-appdata.patch
 
   # Uses Python 2.7 for localization
   - shared-modules/python2.7/python-2.7.json
   - name: colobot-data
     buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/colobot/colobot-data/archive/colobot-gold-0.1.12-alpha.tar.gz
-        sha256: 6eeb53149af8adc9b7d20759a176a418577952371b20ec98fccf0c5ff2591ea9
-        size: 54732267
+        url: https://github.com/colobot/colobot-data/archive/refs/tags/colobot-gold-0.2.0-alpha.tar.gz
+        dest-filename: colobot-data.tar.gz
+        sha256: 4d6932f73830fa4ee9f37f6a18254c306fa804f74a2d78e9db7cb866a3a46a8b
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/colobot/colobot/releases/latest
+          url: https://api.github.com/repos/colobot/colobot-data/releases/latest
           version-query: '.tag_name'
           timestamp-query: '.published_at'
           url-query: '"https://github.com/colobot/colobot-data/archive/" + $version + ".tar.gz"'
       - type: archive
-        url: https://colobot.info/files/music/colobot-music_ogg_0.1.12-alpha.tar.gz
+        url: https://colobot.info/files/music/colobot-music_ogg_0.2.0-alpha.tar.gz
         sha256: 55e89d244f1f63e2467ef71253ca881ee31279f02aac9ac4706ef26c466306e9
-        size: 55596353
         strip-components: 0
         dest: music/
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/colobot/colobot/releases/latest
+          url: https://api.github.com/repos/colobot/colobot-data/releases/latest
           version-query: '.tag_name | match("colobot-gold-(.*)") | .captures[0].string'
           timestamp-query: '.published_at'
           url-query: '"https://colobot.info/files/music/colobot-music_ogg_" + $version + ".tar.gz"'
