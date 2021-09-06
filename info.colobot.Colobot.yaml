@@ -84,7 +84,7 @@ modules:
         sha256: 4d6932f73830fa4ee9f37f6a18254c306fa804f74a2d78e9db7cb866a3a46a8b
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/colobot/colobot-data/releases/latest
+          url: https://api.github.com/repos/colobot/colobot/releases/latest
           version-query: '.tag_name'
           timestamp-query: '.published_at'
           url-query: '"https://github.com/colobot/colobot-data/archive/" + $version + ".tar.gz"'
@@ -95,7 +95,7 @@ modules:
         dest: music/
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/colobot/colobot-data/releases/latest
+          url: https://api.github.com/repos/colobot/colobot/releases/latest
           version-query: '.tag_name | match("colobot-gold-(.*)") | .captures[0].string'
           timestamp-query: '.published_at'
           url-query: '"https://colobot.info/files/music/colobot-music_ogg_" + $version + ".tar.gz"'
