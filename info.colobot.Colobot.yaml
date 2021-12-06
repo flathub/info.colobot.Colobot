@@ -58,8 +58,8 @@ modules:
       - -DCOLOBOT_INSTALL_BIN_DIR=/app/bin
     sources:
       - type: archive
-        url: https://github.com/colobot/colobot/archive/colobot-gold-0.2.0-alpha.tar.gz
-        sha256: 633ce4ec9b54c657942453e769a2339befb2d0afff8b8b3589a73d005e097ab6
+        url: https://github.com/colobot/colobot/archive/colobot-gold-0.1.12-alpha.tar.gz
+        sha256: 38e01a6fb8c670203b86e7a100c79ed4ab4a9a4dcc01fd26a6a57f40fa1a8b5c
         x-checker-data:
           type: json
           url: https://api.github.com/repos/colobot/colobot/releases/latest
