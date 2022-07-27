@@ -78,9 +78,9 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/colobot/colobot-data/archive/colobot-gold-0.2.0-alpha.tar.gz
+        url: https://github.com/colobot/colobot-data/archive/colobot-gold-0.1.12-alpha.tar.gz
         dest-filename: colobot-data.tar.gz
-        sha256: 4d6932f73830fa4ee9f37f6a18254c306fa804f74a2d78e9db7cb866a3a46a8b
+        sha256: 6eeb53149af8adc9b7d20759a176a418577952371b20ec98fccf0c5ff2591ea9
         x-checker-data:
           type: json
           url: https://api.github.com/repos/colobot/colobot/releases/latest
