@@ -1,25 +1,24 @@
----
 app-id: info.colobot.Colobot
 runtime: org.freedesktop.Platform
-runtime-version: '20.08'
+runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
 command: colobot
 rename-icon: colobot
 rename-desktop-file: colobot.desktop
 finish-args:
-  - "--share=ipc"
-  - "--socket=x11"
-  - "--device=dri"
-  - "--socket=pulseaudio"
+  - --share=ipc
+  - --socket=x11
+  - --device=dri
+  - --socket=pulseaudio
 cleanup:
-  - "/bin/*.py"
-  - "/include"
-  - "/lib/pkgconfig"
-  - "/lib/python*"
-  - "/lib/libpython*"
-  - "/share/man"
-  - "*.la"
-  - "*.a"
+  - /bin/*.py
+  - /include
+  - /lib/pkgconfig
+  - /lib/python*
+  - /lib/libpython*
+  - /share/man
+  - '*.la'
+  - '*.a'
 modules:
   - shared-modules/glew/glew.json
   - shared-modules/glu/glu-9.json
@@ -32,8 +31,12 @@ modules:
       - ./b2 install
     sources:
       - type: archive
-        url: https://dl.bintray.com/boostorg/release/1.75.0/source/boost_1_75_0.tar.bz2
-        sha256: 953db31e016db7bb207f11432bef7df100516eeb746843fa0486a222e3fd49cb
+        url: https://github.com/boostorg/boost/releases/download/boost-1.82.0/boost-1.82.0.tar.xz
+        sha256: fd60da30be908eff945735ac7d4d9addc7f7725b1ff6fcdcaede5262d511d21e
+        x-checker-data:
+          type: anitya
+          project-id: 6845
+          url-template: https://github.com/boostorg/boost/releases/download/boost-$version/boost-$version.tar.xz
 
   - name: physfs
     buildsystem: cmake-ninja
@@ -47,13 +50,13 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 3631
-          url-template: 'https://icculus.org/physfs/downloads/physfs-$version.tar.bz2'
+          url-template: https://icculus.org/physfs/downloads/physfs-$version.tar.bz2
 
   - name: colobot
     builddir: true
     buildsystem: cmake-ninja
     build-options:
-      cxxflags: "-Wno-format-overflow"
+      cxxflags: -Wno-format-overflow
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DCOLOBOT_INSTALL_BIN_DIR=/app/bin
@@ -65,15 +68,16 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/colobot/colobot/releases/latest
-          version-query: '.tag_name'
-          timestamp-query: '.published_at'
+          version-query: .tag_name
+          timestamp-query: .published_at
           url-query: '"https://github.com/colobot/colobot/archive/" + $version + ".tar.gz"'
 
       - type: patch
         path: colobot-0.1.12-appdata.patch
-        
       - type: patch
         path: colobot-0.1.12-includes.patch
+      - type: patch
+        path: colobot-0.1.12-list.patch
 
   # Uses Python 2.7 for localization
   - shared-modules/python2.7/python-2.7.json
@@ -87,9 +91,10 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/colobot/colobot/releases/latest
-          version-query: '.tag_name'
-          timestamp-query: '.published_at'
-          url-query: '"https://github.com/colobot/colobot-data/archive/" + $version + ".tar.gz"'
+          version-query: .tag_name
+          timestamp-query: .published_at
+          url-query: '"https://github.com/colobot/colobot-data/archive/" + $version
+            + ".tar.gz"'
       - type: archive
         url: https://colobot.info/files/music/colobot-music_ogg_0.1.12-alpha.tar.gz
         sha256: 55e89d244f1f63e2467ef71253ca881ee31279f02aac9ac4706ef26c466306e9
@@ -99,14 +104,15 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/colobot/colobot/releases/latest
-          version-query: '.tag_name | match("colobot-gold-(.*)") | .captures[0].string'
-          timestamp-query: '.published_at'
-          url-query: '"https://colobot.info/files/music/colobot-music_ogg_" + $version + ".tar.gz"'
+          version-query: .tag_name | match("colobot-gold-(.*)") | .captures[0].string
+          timestamp-query: .published_at
+          url-query: '"https://colobot.info/files/music/colobot-music_ogg_" + $version
+            + ".tar.gz"'
 
   - name: colobot-appdata
     buildsystem: simple
     build-commands:
-      - "install -Dm644 -t /app/share/metainfo info.colobot.Colobot.metainfo.xml"
+      - install -Dm644 -t /app/share/appdata info.colobot.Colobot.appdata.xml
     sources:
       - type: file
-        path: info.colobot.Colobot.metainfo.xml
+        path: info.colobot.Colobot.appdata.xml
