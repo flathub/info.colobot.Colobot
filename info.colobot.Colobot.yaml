@@ -58,7 +58,7 @@ modules:
     build-options:
       cxxflags: -Wno-format-overflow
     config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_BUILD_TYPE=Release
       - -DCOLOBOT_INSTALL_BIN_DIR=/app/bin
     sources:
       - type: archive
@@ -81,6 +81,8 @@ modules:
   - shared-modules/python2.7/python-2.7.json
   - name: colobot-data
     buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
         url: https://github.com/colobot/colobot-data/archive/colobot-gold-0.2.0-alpha.tar.gz

@@ -1,0 +1,18 @@
+--- a/desktop/info.colobot.Colobot.appdata.xml	2021-04-01 09:03:09.458779695 +0200
++++ b/desktop/info.colobot.Colobot.appdata.xml	2021-04-01 09:04:10.703757993 +0200
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<component>
++<component type="desktop-application">
+   <id>info.colobot.Colobot</id>
+   <metadata_license>CC0-1.0</metadata_license>
+   <project_license>GPL-3.0</project_license>
+@@ -33,6 +33,8 @@
+   </content_rating>
+ 
+   <releases>
++    <release date="2021-08-22" version="0.2.0"/>
++    <release date="2019-02-23" version="0.1.12"/>
+     <release date="2018-04-10" version="0.1.11.1"/>
+   </releases>
+ </component>
