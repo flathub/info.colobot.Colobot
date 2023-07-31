@@ -73,7 +73,7 @@ modules:
 
       - type: file
         path: info.colobot.Colobot.appdata.xml
-        dest-path: desktop/info.colobot.Colobot.appdata.xml
+        dest: desktop/
       - type: patch
         path: colobot-0.1.12-list.patch
 
