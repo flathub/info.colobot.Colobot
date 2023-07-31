@@ -1,0 +1,11 @@
+--- a/src/ui/controls/list.cpp    2023-07-31 12:35:01.064189185 +0200
++++ b/src/ui/controls/list.cpp    2023-07-31 12:34:34.687407428 +0200
+@@ -661,7 +661,7 @@
+ 
+     m_items.resize(m_totalLine);
+     if ( name.empty() )
+-        m_items[i].text =  " ";
++        m_items[i].text = std::string(" ");
+     else
+         m_items[i].text = name;
+ 

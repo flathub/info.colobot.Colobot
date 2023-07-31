@@ -1,6 +1,6 @@
 app-id: info.colobot.Colobot
 runtime: org.freedesktop.Platform
-runtime-version: '20.08'
+runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
 command: colobot
 rename-icon: colobot
@@ -31,8 +31,12 @@ modules:
       - ./b2 install
     sources:
       - type: archive
-        url: https://boostorg.jfrog.io/artifactory/main/release/1.75.0/source/boost_1_75_0.tar.gz
-        sha256: aeb26f80e80945e82ee93e5939baebdca47b9dee80a07d3144be1e1a6a66dd6a
+        url: https://github.com/boostorg/boost/releases/download/boost-1.82.0/boost-1.82.0.tar.xz
+        sha256: fd60da30be908eff945735ac7d4d9addc7f7725b1ff6fcdcaede5262d511d21e
+        x-checker-data:
+          type: anitya
+          project-id: 6845
+          url-template: https://github.com/boostorg/boost/releases/download/boost-$version/boost-$version.tar.xz
 
   - name: physfs
     buildsystem: cmake-ninja
@@ -67,8 +71,11 @@ modules:
           timestamp-query: .published_at
           url-query: '"https://github.com/colobot/colobot/archive/" + $version + ".tar.gz"'
 
+      - type: file
+        path: info.colobot.Colobot.appdata.xml
+        dest: desktop/
       - type: patch
-        path: colobot-0.2.0-appdata.patch
+        path: colobot-0.1.12-list.patch
 
   # Uses Python 2.7 for localization
   - shared-modules/python2.7/python-2.7.json
@@ -79,7 +86,6 @@ modules:
     sources:
       - type: archive
         url: https://github.com/colobot/colobot-data/archive/colobot-gold-0.2.0-alpha.tar.gz
-        dest-filename: colobot-data.tar.gz
         sha256: 4d6932f73830fa4ee9f37f6a18254c306fa804f74a2d78e9db7cb866a3a46a8b
         x-checker-data:
           type: json
