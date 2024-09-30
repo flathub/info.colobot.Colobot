@@ -1,6 +1,6 @@
 app-id: info.colobot.Colobot
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 command: colobot
 rename-icon: colobot
@@ -76,6 +76,8 @@ modules:
         dest: desktop/
       - type: patch
         path: colobot-0.1.12-list.patch
+      - type: patch
+        path: colobot-0.2.1-missing-include.patch
 
   # Uses Python 2.7 for localization
   - shared-modules/python2.7/python-2.7.json
