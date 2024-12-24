@@ -62,8 +62,8 @@ modules:
       - -DCOLOBOT_INSTALL_BIN_DIR=/app/bin
     sources:
       - type: archive
-        url: https://github.com/colobot/colobot/archive/colobot-gold-0.2.1-alpha.tar.gz
-        sha256: e2a6df3cb5e713da6ac13b5b4cb9fe9d22dbffab3b7163a886060c38a0d0639e
+        url: https://github.com/colobot/colobot/archive/colobot-gold-0.2.2-alpha.tar.gz
+        sha256: 047eb2bc96725598d918c5b500928e3a08fa3e6e7e730a82169da4524b03ddad
         x-checker-data:
           type: json
           url: https://api.github.com/repos/colobot/colobot/releases/latest
@@ -87,8 +87,8 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: archive
-        url: https://github.com/colobot/colobot-data/archive/colobot-gold-0.2.1-alpha.tar.gz
-        sha256: 409152eaa591210211310ff2f5c459f420c10ce5b85d05b07ba5695cf7584570
+        url: https://github.com/colobot/colobot-data/archive/colobot-gold-0.2.2-alpha.tar.gz
+        sha256: 5c959a65ffc6047b656339bad425e2c050d3eb826e857dd80e2a03da0418c000
         x-checker-data:
           type: json
           url: https://api.github.com/repos/colobot/colobot/releases/latest
@@ -97,7 +97,7 @@ modules:
           url-query: '"https://github.com/colobot/colobot-data/archive/" + $version
             + ".tar.gz"'
       - type: archive
-        url: https://colobot.info/files/music/colobot-music_ogg_0.2.1-alpha.tar.gz
+        url: https://colobot.info/files/music/colobot-music_ogg_0.2.2-alpha.tar.gz
         sha256: 55e89d244f1f63e2467ef71253ca881ee31279f02aac9ac4706ef26c466306e9
         strip-components: 0
         dest: music/
