@@ -37,7 +37,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 6845
-          url-template: https://github.com/boostorg/boost/releases/download/boost-$version/boost-$version.tar.xz
+          url-template: https://github.com/boostorg/boost/releases/download/boost-$version/boost-$version-b2-nodocs.tar.xz
 
   - name: colobot
     builddir: true
